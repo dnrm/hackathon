@@ -67,7 +67,7 @@ class _SearchState extends State<Search> {
                   Icons.search,
                   color: Colors.white38,
                 ),
-                hintText: "Search for turors",
+                hintText: "Search for tutors",
                 border: InputBorder.none,
               ),
             ),

@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'chat_box_menu.dart';
+import './pages/chat_box_menu.dart';
 
 class MessageChatBox extends StatefulWidget {
   MessageChatBox({Key? key}) : super(key: key);

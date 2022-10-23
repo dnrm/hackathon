@@ -30,7 +30,7 @@ class Welcome1 extends StatelessWidget {
               ),
             ),
             const Text(
-              'Welcome to Tutoriffic!',
+              'Welcome to Tutorriffic!',
               style: TextStyle(
                 fontWeight: FontWeight.w800,
                 fontSize: 28,

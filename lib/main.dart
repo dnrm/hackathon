@@ -36,11 +36,12 @@ class MyApp extends StatelessWidget {
       title: 'Hackathon 2022',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSwatch().copyWith(
-            primary: const Color(0xFF181818),
-            secondary: const Color(0xFF78ACC9),
-          ),
-          scaffoldBackgroundColor: const Color(0xFF181818)),
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: const Color(0xFF181818),
+          secondary: const Color(0xFF78ACC9),
+        ),
+        scaffoldBackgroundColor: const Color(0xFF181818),
+      ),
       home: const MainPage(),
     );
   }

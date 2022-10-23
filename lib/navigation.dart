@@ -23,12 +23,11 @@ class _NavigationState extends State<Navigation> {
     });
   }
 
-  static const List<Widget> _pages = [
-    HomePage(),
-    Search(),
+  static final List<Widget> _pages = [
+    const HomePage(),
     Shop(),
-    Profile(),
-    CreateSession(),
+    const Profile(),
+    const CreateSession(),
   ];
 
   @override
@@ -51,7 +50,7 @@ class _NavigationState extends State<Navigation> {
           IconButton(
             onPressed: () {
               setState(() {
-                _selectedIndex = 3;
+                _selectedIndex = 2;
               });
             },
             icon: const CircleAvatar(
@@ -75,13 +74,6 @@ class _NavigationState extends State<Navigation> {
                   Icons.house,
                 ),
                 label: 'Home',
-                backgroundColor: Color(0xFF181818),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.search,
-                ),
-                label: 'Search',
                 backgroundColor: Color(0xFF181818),
               ),
               BottomNavigationBarItem(

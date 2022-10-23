@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackathon/chat/chat_box_menu.dart';
+import 'chat_box_menu.dart';
 
 class ChatHomePage extends StatefulWidget {
   ChatHomePage({Key? key}) : super(key: key);
