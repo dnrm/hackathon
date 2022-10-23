@@ -9,6 +9,14 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  void _logIn() {
+    print("Email: ${emailController.text}");
+    print("Password: ${passwordController.text}");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,13 +59,14 @@ class _LoginPageState extends State<LoginPage> {
                   color: const Color(0xFF78ACC9),
                 ),
               ),
-              child: const TextField(
-                style: TextStyle(
+              child: TextField(
+                controller: emailController,
+                style: const TextStyle(
                   color: Colors.white,
                 ),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
-                  hintText: "Full Name",
+                  hintText: "Email",
                   hintStyle: TextStyle(
                     color: Color(
                       0xFF78ACC9,
@@ -78,11 +87,12 @@ class _LoginPageState extends State<LoginPage> {
                   color: const Color(0xFF78ACC9),
                 ),
               ),
-              child: const TextField(
-                style: TextStyle(
+              child: TextField(
+                controller: passwordController,
+                style: const TextStyle(
                   color: Colors.white,
                 ),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: "Password",
                   hintStyle: TextStyle(
@@ -103,6 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 child: Center(
                   child: TextButton(
+                    onPressed: _logIn,
                     child: const Text(
                       'Login',
                       style: TextStyle(
@@ -110,7 +121,6 @@ class _LoginPageState extends State<LoginPage> {
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
-                    onPressed: () {},
                   ),
                 ),
               ),
