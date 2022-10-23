@@ -1,30 +1,9 @@
 import 'package:flutter/material.dart';
 
-class TopicsOfInterest extends StatefulWidget {
-  const TopicsOfInterest({super.key});
+class TopicsOfInterest extends StatelessWidget {
+  final List<dynamic> topicsOfInterest;
 
-  @override
-  State<TopicsOfInterest> createState() => _TopicsOfInterestState();
-}
-
-class _TopicsOfInterestState extends State<TopicsOfInterest> {
-  final topicsOfInterest = [
-    {
-      "title": 'Java Programming',
-      "icon": Icons.code,
-      "color": 0xFF78ACC9,
-    },
-    {
-      "title": 'Computer Science',
-      "icon": Icons.computer_sharp,
-      "color": 0xFFD0AC41,
-    },
-    {
-      "title": 'Web Development',
-      "icon": Icons.web,
-      "color": 0xFF8DC978,
-    }
-  ];
+  const TopicsOfInterest({super.key, required this.topicsOfInterest});
 
   @override
   Widget build(BuildContext context) {
@@ -104,20 +83,20 @@ class _TopicsOfInterestState extends State<TopicsOfInterest> {
                           Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: Color(
-                                topicsOfInterest[index]["color"] as int,
+                              color: const Color(
+                                0xFFA0C77C,
                               ),
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            child: Icon(
-                              topicsOfInterest[index]["icon"] as IconData,
+                            child: const Icon(
+                              Icons.star,
                               color: Colors.white,
                             ),
                           ),
                           Container(
                             padding: const EdgeInsets.only(left: 10),
                             child: Text(
-                              topicsOfInterest[index]["title"] as String,
+                              topicsOfInterest[index],
                               style: const TextStyle(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 14,

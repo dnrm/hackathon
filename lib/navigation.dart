@@ -55,7 +55,7 @@ class _NavigationState extends State<Navigation> {
               });
             },
             icon: const CircleAvatar(
-              backgroundImage: AssetImage("images/toby.png"),
+              backgroundImage: AssetImage("images/avatar.jpg"),
             ),
           )
         ],

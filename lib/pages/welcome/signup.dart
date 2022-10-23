@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hackathon/pages/welcome/login.dart';
 
+import '../../functions/firestore.dart';
+
 class Welcome4 extends StatefulWidget {
   const Welcome4({Key? key}) : super(key: key);
 
@@ -23,30 +25,44 @@ class _Welcome4State extends State<Welcome4> {
   final topicsOfInterestController = TextEditingController();
 
   void _signUp() async {
-    print("Full name: ${fullNameController.text}");
-    print("Email: ${emailController.text}");
-    print("Password: ${passwordController.text}");
+    // print("Full name: ${fullNameController.text}");
+    // print("Email: ${emailController.text}");
+    // print("Password: ${passwordController.text}");
 
-    print("School: ${schoolController.text}");
-    print("Semester: ${semesterController.text}");
+    // print("School: ${schoolController.text}");
+    // print("Semester: ${semesterController.text}");
 
-    print("Topics of interest: ${topicsOfInterestController.text}");
+    // print("Topics of interest: ${topicsOfInterestController.text}");
 
-    // try {
-    //   final credential =
-    //       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-    //     email: emailAddress,
-    //     password: password,
-    //   );
-    // } on FirebaseAuthException catch (e) {
-    //   if (e.code == 'weak-password') {
-    //     print('The password provided is too weak.');
-    //   } else if (e.code == 'email-already-in-use') {
-    //     print('The account already exists for that email.');
-    //   }
-    // } catch (e) {
-    //   print(e);
-    // }
+    try {
+      print("Signup up...");
+      final credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      print(credential);
+
+      db.collection("users").add(
+        {
+          "email": emailController.text,
+          "joinDate": DateTime.now(),
+          "name": fullNameController.text,
+          "profilePic": "",
+          "school": schoolController.text,
+          "semester": semesterController.text,
+          "topicsOfInterest": topicsOfInterestController.text.split(","),
+        },
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
@@ -291,26 +307,22 @@ class _Welcome4State extends State<Welcome4> {
               ),
             ]),
             const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: GestureDetector(
-                child: Container(
-                  height: 60,
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF78ACC9),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Center(
-                    child: TextButton(
-                      onPressed: _signUp,
-                      child: const Text(
-                        'Sign up',
-                        style: TextStyle(
-                            fontSize: 20.0,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
+            GestureDetector(
+              child: Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF78ACC9),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Center(
+                  child: TextButton(
+                    onPressed: _signUp,
+                    child: const Text(
+                      'Sign Up',
+                      style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
