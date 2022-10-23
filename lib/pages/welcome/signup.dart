@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hackathon/pages/welcome/login.dart';
 
 class Welcome4 extends StatefulWidget {
@@ -9,6 +10,45 @@ class Welcome4 extends StatefulWidget {
 }
 
 class _Welcome4State extends State<Welcome4> {
+  // * Personal information fields
+  final fullNameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  // * Personal information fields
+  final schoolController = TextEditingController();
+  final semesterController = TextEditingController();
+
+  // * Topics of interest controller
+  final topicsOfInterestController = TextEditingController();
+
+  void _signUp() async {
+    print("Full name: ${fullNameController.text}");
+    print("Email: ${emailController.text}");
+    print("Password: ${passwordController.text}");
+
+    print("School: ${schoolController.text}");
+    print("Semester: ${semesterController.text}");
+
+    print("Topics of interest: ${topicsOfInterestController.text}");
+
+    // try {
+    //   final credential =
+    //       await FirebaseAuth.instance.createUserWithEmailAndPassword(
+    //     email: emailAddress,
+    //     password: password,
+    //   );
+    // } on FirebaseAuthException catch (e) {
+    //   if (e.code == 'weak-password') {
+    //     print('The password provided is too weak.');
+    //   } else if (e.code == 'email-already-in-use') {
+    //     print('The account already exists for that email.');
+    //   }
+    // } catch (e) {
+    //   print(e);
+    // }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,11 +89,13 @@ class _Welcome4State extends State<Welcome4> {
                   color: const Color(0xFF78ACC9),
                 ),
               ),
-              child: const TextField(
-                style: TextStyle(
+              child: TextField(
+                controller: fullNameController,
+                style: const TextStyle(
                   color: Colors.white,
                 ),
-                decoration: InputDecoration(
+                onChanged: (e) => print(e),
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: "Full Name",
                   hintStyle: TextStyle(
@@ -74,11 +116,12 @@ class _Welcome4State extends State<Welcome4> {
                   color: const Color(0xFF78ACC9),
                 ),
               ),
-              child: const TextField(
-                style: TextStyle(
+              child: TextField(
+                controller: emailController,
+                style: const TextStyle(
                   color: Colors.white,
                 ),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: "Email",
                   hintStyle: TextStyle(
@@ -99,11 +142,12 @@ class _Welcome4State extends State<Welcome4> {
                   color: const Color(0xFF78ACC9),
                 ),
               ),
-              child: const TextField(
-                style: TextStyle(
+              child: TextField(
+                controller: passwordController,
+                style: const TextStyle(
                   color: Colors.white,
                 ),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: "Password",
                   hintStyle: TextStyle(
@@ -134,11 +178,12 @@ class _Welcome4State extends State<Welcome4> {
                   color: const Color(0xFF78ACC9),
                 ),
               ),
-              child: const TextField(
-                style: TextStyle(
+              child: TextField(
+                controller: schoolController,
+                style: const TextStyle(
                   color: Colors.white,
                 ),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: "School",
                   hintStyle: TextStyle(
@@ -159,13 +204,14 @@ class _Welcome4State extends State<Welcome4> {
                   color: const Color(0xFF78ACC9),
                 ),
               ),
-              child: const TextField(
-                style: TextStyle(
+              child: TextField(
+                controller: semesterController,
+                style: const TextStyle(
                   color: Colors.white,
                 ),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
-                  hintText: "Semester",
+                  hintText: "Semester (e.g. 1)",
                   hintStyle: TextStyle(
                     color: Color(
                       0xFF78ACC9,
@@ -194,11 +240,12 @@ class _Welcome4State extends State<Welcome4> {
                   color: const Color(0xFF78ACC9),
                 ),
               ),
-              child: const TextField(
-                style: TextStyle(
+              child: TextField(
+                controller: topicsOfInterestController,
+                style: const TextStyle(
                   color: Colors.white,
                 ),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: "Music, art, computer science...",
                   hintStyle: TextStyle(
@@ -256,6 +303,7 @@ class _Welcome4State extends State<Welcome4> {
                   ),
                   child: Center(
                     child: TextButton(
+                      onPressed: _signUp,
                       child: const Text(
                         'Sign up',
                         style: TextStyle(
@@ -263,7 +311,6 @@ class _Welcome4State extends State<Welcome4> {
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
                       ),
-                      onPressed: () {},
                     ),
                   ),
                 ),
@@ -297,7 +344,7 @@ class _Welcome4State extends State<Welcome4> {
               ],
             ),
             const SizedBox(
-              height: 78,
+              height: 30,
             ),
           ],
         ),
