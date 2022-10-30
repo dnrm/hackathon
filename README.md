@@ -1,16 +1,13 @@
-# hackathon
+![Tutorrific banner](https://medina.dev/tutorriffic.jpg)
 
-A new Flutter project.
+# Tutorriffic
 
-## Getting Started
+Tutorriffic, where the best tutors meet the best learners. Tutorriffic is a mobile app designed to connect schoolmates into one-to-one tutoring sessions. This app was part of ROBOHackIT 2022, a 24 hour hackathon organised by James W. Robinson Secondary School. My team's project won the Best Use of Google Cloud award. The app was built using Flutter and Firebase.
 
-This project is a starting point for a Flutter application.
+Created by:
+- @dnrm
+- @salogod
 
-A few resources to get you started if this is your first Flutter project:
+Check out the devpost page using the link below ↓
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[https://devpost.com/software/tutoriffic](https://devpost.com/software/tutoriffic)
