@@ -13,6 +13,7 @@ class _CreateSessionState extends State<CreateSession> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF2E2E2E),
+        shadowColor: Colors.transparent,
         title: const Text(
           'Create Session',
           style: TextStyle(
@@ -24,9 +25,9 @@ class _CreateSessionState extends State<CreateSession> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        icon: const Icon(Icons.check),
+        icon: const Icon(Icons.add),
         label: const Text(
-          "Book",
+          "Create",
           style: TextStyle(
             letterSpacing: -1,
             fontWeight: FontWeight.w600,
@@ -42,35 +43,18 @@ class _CreateSessionState extends State<CreateSession> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             CircleAvatar(
-              backgroundColor: Colors.white,
+              backgroundColor: Colors.white24,
               radius: 48,
-              child: CircleAvatar(
-                radius: 44,
-                backgroundImage: AssetImage("images/dog.jpg"),
+              child: Icon(
+                Icons.video_call,
+                size: 40,
+                color: Color(0xFF78ACC9),
               ),
             ),
-            Text.rich(
-              TextSpan(
-                text: 'Book a session with ',
-                children: [
-                  TextSpan(
-                    text: 'Cute Dog',
-                    children: [
-                      TextSpan(
-                        text: "?",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 18,
-                          letterSpacing: -1,
-                        ),
-                      ),
-                    ],
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ],
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 5),
+              child: Text(
+                "Create a new session?",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w400,
@@ -78,7 +62,7 @@ class _CreateSessionState extends State<CreateSession> {
                   letterSpacing: -1,
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),

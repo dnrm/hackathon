@@ -42,83 +42,91 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            alignment: Alignment.centerLeft,
-            padding:
-                const EdgeInsets.only(top: 15, bottom: 15, left: 15, right: 15),
-            width: MediaQuery.of(context).size.width,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("images/background.jpeg"),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: const CircleAvatar(
-              backgroundColor: Colors.white,
-              radius: 48,
-              child: CircleAvatar(
-                radius: 44,
-                backgroundImage: AssetImage(
-                  "images/avatar.jpg",
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: 20,
+          right: 10,
+          left: 10,
+          bottom: 20,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.only(
+                  top: 15, bottom: 15, left: 15, right: 15),
+              width: MediaQuery.of(context).size.width,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("images/background.jpeg"),
+                  fit: BoxFit.cover,
                 ),
               ),
-            ),
-          ),
-          Container(
-            padding:
-                const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  userData["name"] ?? "Loading...",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 30,
-                    color: Colors.white,
-                    letterSpacing: -1.5,
+              child: const CircleAvatar(
+                backgroundColor: Colors.white,
+                radius: 48,
+                child: CircleAvatar(
+                  radius: 44,
+                  backgroundImage: AssetImage(
+                    "images/avatar.jpg",
                   ),
                 ),
-                Text.rich(
-                  TextSpan(
-                    text: '5th semester student at ',
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(
+                  top: 15, left: 15, right: 15, bottom: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    userData["name"] ?? "Loading...",
                     style: const TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 14,
-                      color: Colors.white70,
-                      letterSpacing: -0.5,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 30,
+                      color: Colors.white,
+                      letterSpacing: -1.5,
                     ),
-                    children: [
-                      TextSpan(
-                        text: userData["school"] ?? "Loading...",
-                        style: const TextStyle(fontWeight: FontWeight.w700),
-                      )
-                    ],
                   ),
-                )
-              ],
+                  Text.rich(
+                    TextSpan(
+                      text: '5th semester student at ',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                        color: Colors.white70,
+                        letterSpacing: -0.5,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: userData["school"] ?? "Loading...",
+                          style: const TextStyle(fontWeight: FontWeight.w700),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-          Container(
-            padding:
-                const EdgeInsets.only(top: 10, left: 15, right: 15, bottom: 15),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TopicsOfInterest(
-                  topicsOfInterest: userData["topicsOfInterest"] ?? [],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const ProfileActions()
-              ],
-            ),
-          )
-        ],
+            Container(
+              padding: const EdgeInsets.only(
+                  top: 10, left: 15, right: 15, bottom: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TopicsOfInterest(
+                    topicsOfInterest: userData["topicsOfInterest"] ?? [],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const ProfileActions()
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

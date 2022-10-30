@@ -1,10 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:hackathon/pages/shop_container.dart';
 
 class Shop extends StatefulWidget {
-  Shop({Key? key}) : super(key: key);
+  const Shop({Key? key}) : super(key: key);
 
   @override
   State<Shop> createState() => _ShopState();
@@ -13,67 +11,47 @@ class Shop extends StatefulWidget {
 class _ShopState extends State<Shop> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.black,
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          toolbarHeight: 100,
-          leading: IconButton(
-              onPressed: onTap(),
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-              )),
-          actions: const <Widget>[
-            CircleAvatar(
-              backgroundColor: Colors.white,
-              radius: 33,
-              child: CircleAvatar(
-                radius: 29,
-                backgroundImage: AssetImage("images/toby.png"),
-              ),
+    return SingleChildScrollView(
+        child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.all(15),
+          child: Text(
+            "Shop",
+            style: TextStyle(
+              fontWeight: FontWeight.w800,
+              fontSize: 30,
+              color: Colors.white,
+              letterSpacing: -1.5,
             ),
-          ],
+          ),
         ),
-        body: Padding(
-          padding:
-              const EdgeInsets.only(top: 20, right: 10, left: 10, bottom: 20),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Shop",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
+            children: const [
+              ShopContainer(
+                cantidad: "50",
+                costo: "100",
               ),
-              const SizedBox(height: 30),
-              Container(
-                height: 1,
-                decoration: const BoxDecoration(
-                  color: Colors.white38,
-                ),
+              ShopContainer(
+                cantidad: "50",
+                costo: "150",
               ),
-              const SizedBox(height: 40),
-              Row(
-                children: [
-                  ShopContainer(cantidad: "x50", costo: "\$" + "100"),
-                  const SizedBox(width: 40),
-                  ShopContainer(cantidad: "x100", costo: "\$" + "150")
-                ],
+              ShopContainer(
+                cantidad: "300",
+                costo: "200",
               ),
-              SizedBox(height: 40),
-              Row(
-                children: [
-                  ShopContainer(cantidad: "x300", costo: "\$" + "200"),
-                  const SizedBox(width: 40),
-                  ShopContainer(cantidad: "x1000", costo: "\$" + "700")
-                ],
-              ),
+              ShopContainer(
+                cantidad: "1000",
+                costo: "700",
+              )
             ],
           ),
-        ));
+        )
+      ],
+    ));
   }
 
   onTap() {}
